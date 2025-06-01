@@ -1,0 +1,134 @@
+{
+  "panels": [
+    {
+      "title": "Солнечная батарея SilaSolar 30Вт",
+      "price": "2 720 руб",
+      "img": "../img/products/Mono_solar_panel_30W.png",
+      "features": {
+        "power": "30 Ватт",
+        "voltage": "12 В",
+        "operating_current": "1.61 А",
+        "technology": "Монокристалл",
+        "dimension": "541 х 439 х 25 мм",
+        "weight": "2,8 кг"
+      }
+    },
+    {
+      "title": "Солнечная батарея SilaSolar 50Вт",
+      "price": "3 440 руб",
+      "img": "../img/products/Mono_solar_panel_50W.png",
+      "features": {
+        "power": "50 Ватт",
+        "voltage": "12 В",
+        "operating_current": "2,73 А",
+        "technology": "Монокристалл",
+        "dimension": "630 x 550 x 25 мм",
+        "weight": "4,2 кг"
+      }
+    },
+    {
+      "title": "Солнечная батарея SilaSolar 120Вт",
+      "price": "5 440 руб",
+      "img": "../img/products/Mono_solar_panel_100W.png",
+      "features": {
+        "power": "120 Ватт",
+        "voltage": "12 В",
+        "operating_current": "5,95 А",
+        "technology": "Монокристалл",
+        "dimension": "1060 × 592 × 30 мм",
+        "weight": "7,6 кг"
+      }
+    },
+    {
+      "title": "Солнечная батарея SilaSolar 240Вт",
+      "price": "8 800 руб",
+      "img": "../img/products/Mono_solar_panel_200W.png",
+      "features": {
+        "power": "240 Ватт",
+        "voltage": "12 В",
+        "operating_current": "11,90 А",
+        "technology": "Монокристалл",
+        "dimension": "1568 × 770 × 30 мм",
+        "weight": "11,1 кг"
+      }
+    },
+    {
+      "title": "Солнечная батарея SilaSolar 430Вт (TP)",
+      "price": "11 520 руб",
+      "img": "../img/products/Mono_solar_panel_460W.png",
+      "features": {
+        "power": "430 Ватт",
+        "voltage": "24 В",
+        "operating_current": "13,33 А",
+        "technology": "TP PERC",
+        "dimension": "1724x1134x30 мм",
+        "weight": "20,5 кг"
+      }
+    },
+    {
+      "title": "Солнечная батарея SilaSolar 500Вт (TP)",
+      "price": "12 620 руб",
+      "img": "../img/products/Mono_500W_TOPCon.png",
+      "features": {
+        "power": "500 Ватт",
+        "voltage": "24 В",
+        "operating_current": "13,50 A",
+        "technology": "TOPCon Two Power",
+        "dimension": "1909 x 1134 x 35 мм",
+        "weight": "23 кг"
+      }
+    },
+    {
+      "title": "Солнечная батарея SilaSolar 610/760Вт TOPCon",
+      "price": "16 240 руб",
+      "img": "../img/products/Solnechnaya_batareya_sila_610vt.png",
+      "features": {
+        "power": "610 / 760 Ватт",
+        "voltage": "24 В",
+        "operating_current": "15,34 A",
+        "technology": "TOPCon Bifacial",
+        "dimension": "2382 x 1134 x 30 мм",
+        "weight": "28,5 кг"
+      }
+    },
+    {
+      "title": "Гибкая солнечная батарея  E-Power 25Вт",
+      "price": "3 420 руб",
+      "img": "../img/products/Flexible_25W_.png",
+      "features": {
+        "power": "25 Вт",
+        "voltage": "12 В",
+        "operating_current": "1,40 А",
+        "technology": "Монокристалл",
+        "dimension": "400 x 450 x 3 мм",
+        "weight": "0,6 кг"
+      }
+    },
+    {
+      "title": "Гибкая солнечная батарея  SILA 120Вт",
+      "price": "7 120 руб",
+      "img": "../img/products/Flexible_Pane_sila_120vt_.png",
+      "features": {
+        "power": "120 Ватт",
+        "voltage": "12 В",
+        "operating_current": "5,83 А",
+        "technology": "Монокристалл",
+        "dimension": "1080 x 592 x 2 мм",
+        "weight": "1,6 кг"
+      }
+    },
+    {
+      "title": "Гибкая солнечная батарея  SILA 200Вт",
+      "price": "10 560 руб",
+      "img": "../img/products/Flexible_Pane_sila_200vt_.png",
+      "features": {
+        "power": "200 Ватт",
+        "voltage": "12 В",
+        "operating_current": "11,64 A",
+        "technology": "Монокристалл",
+        "dimension": "1350 x 770 x 2 мм",
+        "weight": "2,45 кг"
+      }
+    }
+  ]
+}
