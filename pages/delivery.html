@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenRay</title>
+    <link
+      rel="shortcut icon"
+      href="../img/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../style/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <nav class="header__nav-container">
+          <a href="/" class="link">
+            <img
+              class="header__logo logo"
+              src="../img/logo.png"
+              alt="Logo GreenRay"
+            />
+          </a>
+
+          <div class="menu">
+            <input
+              type="checkbox"
+              id="burger-checkbox"
+              class="burger-checkbox"
+            />
+            <label for="burger-checkbox" class="burger"></label>
+            <ul class="menu-list">
+              <li>
+                <a href="./purchase.html" class="menu-item">Покупка</a>
+              </li>
+              <li>
+                <a href="./follow_us.html" class="menu-item">Мы в соц. сетях</a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="header__menu">
+            <li class="header__menu-item">
+              <a class="header__menu-link link" href="./purchase.html"
+                >Покупка</a
+              >
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link link" href="./follow_us.html"
+                >Мы в соц. сетях</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main">
+        <!-- <div class="main__before-purchase-section"></div> -->
+        <div class="main__about_purchase-section">
+          <div class="purchase-content">
+            <h2 class="purchase-title">
+              Солнечные панели от ведущих мировых производителей
+            </h2>
+
+            <ul class="purchase-facts">
+              <li class="delivery-fact">
+                <h3>
+                  GreenRay обеспечивает быструю и надежную доставку солнечных
+                  панелей по всей России. Мы работаем только с проверенными
+                  транспортными компаниями, что гарантирует сохранность
+                  оборудования и соблюдение сроков поставки.
+                </h3>
+              </li>
+              <li class="delivery-fact">
+                <h3>
+                  Все панели упаковываются в профессиональную защитную упаковку,
+                  предотвращающую повреждения при транспортировке. Для хрупких
+                  элементов используются специальные амортизирующие вставки и
+                  антиударные уголки.
+                </h3>
+              </li>
+              <li class="delivery-fact">
+                <h3>
+                  Сроки доставки составляют от 3 до 10 рабочих дней в
+                  зависимости от региона. В Москве и Санкт-Петербурге доступна
+                  экспресс-доставка в течение 1-2 дней. Мы всегда информируем
+                  клиентов о статусе заказа на каждом этапе.
+                </h3>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="main__delivery-section">
+          <h2 class="section-title">
+            Калькулятор доставки, установки и вырабатываемой электроэнергии
+          </h2>
+
+          <div class="calculator-container">
+            <div class="panel-selection">
+              <h3 class="choice-panels-h3">Выберите солнечные панели:</h3>
+
+              <div class="panel-selector">
+                <select id="panel-type" class="form-select">
+                  <option value="">Загрузка данных...</option>
+                </select>
+
+                <input
+                  type="number"
+                  id="panel-quantity"
+                  class="form-input"
+                  min="1"
+                  value="1"
+                  placeholder="Количество"
+                />
+
+                <button id="add-panel" class="add-button">Добавить</button>
+              </div>
+
+              <div class="selected-panels">
+                <h4 class="choice-panels-h4">Выбранные панели:</h4>
+                <ul id="panels-list"></ul>
+                <div id="total-power" class="total-power">
+                  Общая мощность (средняя): 0 Вт
+                </div>
+              </div>
+            </div>
+
+            <div class="delivery-info">
+              <h3>Информация о доставке:</h3>
+
+              <div class="form-group">
+                <label class="region-delivery" for="region"
+                  >Регион доставки:</label
+                >
+                <select id="region" class="form-select">
+                  <option value="">Загрузка данных...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Адрес:</label>
+                <input
+                  type="text"
+                  id="address"
+                  class="form-input"
+                  placeholder="Укажите адрес доставки"
+                />
+              </div>
+
+              <div class="calculation-results">
+                <div class="result-item">
+                  <span>Стоимость панелей:</span>
+                  <span id="panels-cost">0 руб</span>
+                </div>
+                <div class="result-item">
+                  <span>Стоимость доставки:</span>
+                  <span id="delivery-cost">0 руб</span>
+                </div>
+                <div class="result-item">
+                  <span>Стоимость установки:</span>
+                  <span id="installation-cost">0 руб</span>
+                </div>
+                <div class="result-item total">
+                  <span>Итого:</span>
+                  <span id="total-cost">0 руб</span>
+                </div>
+              </div>
+
+              <button id="calculate-btn" class="calculate-button">
+                Рассчитать
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__text-container">
+          <div class="footer__textAndLogo">
+            <img class="logo" src="../img/logo.png" alt="logo footer__logo" />
+            <h3 class="text-copyright">Copyright© 2025 GreenRay.</h3>
+          </div>
+
+          <h2 class="footer__text-main">ВОЗОБНОВЛЯЕМАЯ - ЭНЕРГИЯ</h2>
+        </div>
+
+        <div class="footer__navAndApp">
+          <nav class="footer__nav-container">
+            <ul class="footer__menu">
+              <li class="footer__menu-item">
+                <a class="footer__menu-link link" href="./purchase.html"
+                  >Покупка</a
+                >
+              </li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link link" href="./follow_us.html"
+                  >Мы в соц. сетях</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="footer__appInstall">
+            <h3 class="text-app-inatall">
+              Вы также можете установить наше приложение для мониторинга ваших
+              солнечных панелей:
+            </h3>
+
+            <div class="footer__appInstall-container">
+              <img
+                class="img__monitoring-app"
+                src="../img/mobile-monitoring-app.jpg"
+                alt="mobile monitoring app"
+              />
+
+              <ul class="install-app-links">
+                <li class="footer__app-item">
+                  <a
+                    class="footer__app-link link"
+                    href="https://www.apple.com/app-store/"
+                    target="_blank"
+                  >
+                    <img
+                      class="appstore-svg icon"
+                      src="../img/icon_appstore.svg"
+                      alt="App Store"
+                    />
+                  </a>
+                </li>
+                <li class="footer__app-item">
+                  <a
+                    class="footer__app-link link"
+                    href="https://play.google.com/store/games"
+                    target="_blank"
+                  >
+                    <img
+                      class="google-play-svg icon"
+                      src="../img/icon_google-play.png"
+                      alt="Google play"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <button class="back-to-top">
+          <a href="#">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z"
+                  fill="#ffffff"
+                ></path>
+              </g>
+            </svg>
+          </a>
+        </button>
+      </footer>
+    </div>
+
+    <script src="../js/addDelivery.js"></script>
+    <script src="../js/backToTop.js"></script>
+  </body>
+</html>

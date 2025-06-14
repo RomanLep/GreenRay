@@ -59,41 +59,89 @@ body {
   height: 30px;
 }
 
-.burger-toggle {
+.menu {
   display: none;
 }
 
-.burger-btn {
-  display: none;
+.burger-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.burger {
+  z-index: 1;
   cursor: pointer;
-  z-index: 1001;
-}
-
-.burger-line {
   display: block;
-  width: 26px;
-  height: 3px;
-  background-color: var(--color-green);
   position: relative;
-  transition: all 0.3s;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 26px;
 }
 
-.burger-line::before,
-.burger-line::after {
+.burger::before,
+.burger::after {
   content: "";
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--color-green);
+}
+
+.burger::before {
+  top: 0;
+  box-shadow: 0 11px 0 var(--color-green);
+  transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
+}
+
+.burger::after {
+  bottom: 0;
+  transition: bottom 0.3s 0.15s, transform 0.3s;
+}
+
+.burger-checkbox:checked + .burger::before {
+  top: 11px;
+  transform: rotate(45deg);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
+}
+
+.burger-checkbox:checked + .burger::after {
+  bottom: 11px;
+  transform: rotate(-45deg);
+  transition: bottom 0.3s, transform 0.3s 0.15s;
+}
+
+.menu-list {
+  top: 0;
+  right: 0;
   position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: var(--color-green);
-  transition: all 0.3s;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--color-white);
+  transform: translateX(100%);
+  transition: 0.3s;
 }
 
-.burger-line::before {
-  top: -8px;
+.menu-item {
+  display: block;
+  padding: 8px;
+  color: var(--color-green);
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
 }
 
-.burger-line::after {
-  top: 8px;
+.burger-checkbox:checked ~ .menu-list {
+  transform: translateX(0);
 }
 
 .header__menu {
@@ -343,8 +391,6 @@ body {
   line-height: 1.5;
 }
 
-
-
 .main__follow_us-section {
   background-color: var(--color-white);
   border-radius: var(--border-radius);
@@ -353,7 +399,7 @@ body {
   gap: 30px;
 }
 
-.text_social_media-container{
+.text_social_media-container {
   max-width: 50%;
   display: flex;
   flex-direction: column;
@@ -413,7 +459,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-.social_media_benefits:hover{
+.social_media_benefits:hover {
   transform: translateY(-5px);
 }
 
@@ -509,12 +555,10 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-
 .main__about_purchase-section {
   padding: var(--container-padding);
   background-color: var(--color-white);
   border-radius: var(--border-radius);
-  margin-bottom: 20px;
 }
 
 .purchase-title {
@@ -524,7 +568,7 @@ body {
   color: var(--color-light-black);
 }
 
-.purchase-facts{
+.purchase-facts {
   background-color: var(--color-green);
   color: var(--color-white);
   padding: var(--container-padding);
@@ -533,10 +577,6 @@ body {
   flex-direction: column;
   gap: 20px;
 }
-
-
-
-
 
 .main__purchase-section {
   padding: var(--container-padding);
@@ -637,9 +677,157 @@ body {
   background-color: #5ec75e;
 }
 
+.main__delivery-section {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  padding: var(--container-padding);
+}
 
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--color-light-black);
+}
 
+.calculator-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
 
+.panel-selection,
+.delivery-info {
+  flex: 1;
+}
+
+.choice-panels-h3,
+.choice-panels-h4 {
+  color: var(--color-light-black);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.panel-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-select,
+.form-input {
+  padding: 10px 15px;
+  border: 1px solid var(--color-grey);
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  flex: 1;
+}
+
+.add-button {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #5ec75e;
+}
+
+.selected-panels {
+  background-color: var(--color-grey);
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+#panels-list {
+  margin: 15px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#panels-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #acacac;
+}
+
+.total-power {
+  font-weight: bold;
+  color: var(--color-green);
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.region-delivery {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-dark-grey);
+}
+
+.calculation-results {
+  background-color: var(--color-grey);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin: 20px 0;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.result-item.total {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.calculate-button {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculate-button:hover {
+  background-color: #5ec75e;
+}
+
+.containerBtnAndPrice {
+  display: flex;
+  gap: 60px;
+}
+
+.remove-panel {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.remove-btn-svg {
+  width: 12px;
+}
 
 .footer {
   position: relative;
@@ -721,27 +909,18 @@ body {
 .install-app-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.footer__app-item {
-  background-color: var(--color-light-black);
-  border-radius: var(--border-radius);
-  padding: 14px;
+  gap: 16px;
 }
 
 .footer__app-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  color: var(--color-white);
   text-decoration: none;
 }
 
-.icon-svg {
-  width: 2.6rem;
-  height: 2.6rem;
+.icon {
+  width: 180px;
 }
 
 .text-icon {
@@ -771,145 +950,103 @@ body {
 
 @media (max-width: 1400px) {
   .container {
-    margin: 0 1%;
+    margin: 0;
   }
 }
 
-/* отсюда нужно исправлять */
+/* @media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+} */
 
 @media (max-width: 1200px) {
-  .header__menu {
-    gap: 20px;
+  .main__about-section,
+  .main__installation-section {
+    gap: 30px;
   }
 
-  .main__company-title,
-  .main__installation-step,
-  .header__menu-link,
-  .footer__menu-link,
-  .text-icon {
-    font-size: 1.2rem;
+  .calculator-container {
+    flex-direction: column;
   }
 
-  .main__installation-title {
-    font-size: 1.8rem;
+  .panel-selection,
+  .delivery-info {
+    width: 100%;
   }
 }
 
 @media (max-width: 992px) {
-  /* Активация бургер-меню */
-  .burger-toggle {
-    display: block;
-    opacity: 0;
-    position: absolute;
+  .header__menu {
+    gap: 20px;
   }
 
-  .burger-btn {
+  .main__company-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid,
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social_media_icons {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
     display: block;
+  }
+
+  .header__menu-link {
+    font-size: 1.4rem;
+    padding: 12px 20px;
+    width: 80%;
+    text-align: center;
+  }
+
+  .header__menu-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .header__menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    transform: translateY(-100%);
-    transition: transform 0.5s ease-in-out;
-    z-index: 1000;
-  }
-
-  .burger-toggle:checked ~ .header__menu {
-    transform: translateY(0);
-  }
-
-  .burger-toggle:checked + .burger-btn .burger-line {
-    background-color: transparent;
-  }
-
-  .burger-toggle:checked + .burger-btn .burger-line::before {
-    transform: rotate(45deg);
-    top: 0;
-  }
-
-  .burger-toggle:checked + .burger-btn .burger-line::after {
-    transform: rotate(-45deg);
-    top: 0;
-  }
-
-  .header {
-    top: 10px;
+    display: none;
   }
 
   .main__about-section,
   .main__installation-section {
     flex-direction: column;
-    gap: 20px;
   }
 
   .main__image {
     width: 100%;
-    max-height: 400px;
+    max-height: 300px;
   }
 
-  .main__company-facts {
-    justify-content: center;
+  .text_social_media-container {
+    max-width: 100%;
   }
 
   .footer__navAndApp {
     flex-direction: column;
-    gap: 30px;
   }
 
   .footer__appInstall {
     max-width: 100%;
-  }
-
-  .footer__nav-container {
-    max-width: 100%;
-  }
-
-  .footer__menu {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    top: 0;
-    margin: 10px 0 0 0;
-  }
-
-  .main__section-title {
-    font-size: 2.5rem;
-  }
-
-  .testimonials-grid,
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .main__company-title {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  .main__installation-title {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  .main__installation-steps {
-    gap: 20px;
-  }
-
-  .footer__text-main {
-    font-size: 3rem;
   }
 
   .footer__appInstall-container {
@@ -919,60 +1056,38 @@ body {
 
   .img__monitoring-app {
     max-width: 60%;
-    display: block;
   }
 
   .install-app-links {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
 }
 
 @media (max-width: 576px) {
-  .header__logo {
-    margin: 0;
-  }
-
-  .main__section-title {
-    font-size: 2rem;
-  }
-
-  .testimonial-card,
-  .benefit-card {
-    padding: 20px;
-  }
-
   .main__company-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid,
+  .benefits-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-selector {
     flex-direction: column;
-  }
-
-  .main__company-fact {
-    text-align: center;
-  }
-
-  .footer__text-main {
-    font-size: 2rem;
-    white-space: normal;
   }
 
   .footer__menu {
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    gap: 10px;
   }
 
-  .footer__app-item {
-    padding: 10px;
-  }
-
-  .icon-svg {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .text-icon {
-    font-size: 1.2rem;
+  .footer__textAndLogo {
+    flex-direction: column;
+    gap: 20px;
   }
 
   .back-to-top {

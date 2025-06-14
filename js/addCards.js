@@ -61,7 +61,7 @@ const renderingCard = (card) => {
 
           <div class="product-price">${card.price}</div>
 
-          <button class="buy-button">Купить</button>
+          <button class="buy-button" onclick="window.location = './delivery.html'">Купить</button>
         </div>
       </li>
         `
